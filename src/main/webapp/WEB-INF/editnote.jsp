@@ -1,7 +1,7 @@
 <%-- 
     Document   : editnote
     Created on : Jan 30, 2022, 7:52:28 PM
-    Author     : HP
+    Author     : Shiana Khehra
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -12,13 +12,21 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Edit Note</h1>
+        <h1>Simple Note Keeper</h1>
+        <h2>Edit Note</h2>
         
         <form action="note" method="post">
-            <input type="text" name="title" id="title" placeholder="Title">
-            <input type="text" name="contents" id="contents" placeholder="Contents">
+            <label for="title">Title: </label>
+            <input type="text" name="title" id="title" placeholder="Title" value="${titlefield}">
             
-            <button type="submit">Submit</button>
+            <br>
+            
+            <label for="contents">Contents: </label>
+            <textarea name="contents" id="contents" placeholder="Contents" rows="6">${contentsfield}</textarea>
+            
+            <br>
+            
+            <button type="submit">Save</button>
         </form>
     </body>
 </html>

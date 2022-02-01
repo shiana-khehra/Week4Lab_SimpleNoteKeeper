@@ -7,7 +7,7 @@ import javax.servlet.http.*;
 
 /**
  *
- * @author HP
+ * @author Shiana Khehra
  */
 public class NoteServlet extends HttpServlet {
     /**
@@ -25,6 +25,16 @@ public class NoteServlet extends HttpServlet {
         
         if(query != null && query.contains("edit")) {
             // Display the edit form
+            String path = getServletContext().getRealPath("/WEB-INF/note.txt");
+        
+            BufferedReader br = new BufferedReader(new FileReader(new File(path)));
+        
+            String title = br.readLine();
+            String contents = br.readLine();
+            
+            request.setAttribute("titlefield", title);
+            request.setAttribute("contentsfield", contents);
+       
             getServletContext().getRequestDispatcher("/WEB-INF/editnote.jsp").forward(request, response);
         } else {
             // Display the note
